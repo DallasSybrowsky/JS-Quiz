@@ -15,18 +15,26 @@
 
 h1 {
   font-size: 5.4rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 li {
     font-size: 2.4rem;
     font-weight: 500;
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.5rem;
+
 }
+
+ol {
+  padding: 0rem;
+}
+
 /* Utilities */
 .potterLogo {
   background-color: transparent;
   width: 70rem;
+  margin-top: 8rem;
+  margin-bottom: -2rem
 }
 
 .container {
@@ -70,7 +78,7 @@ li {
   text-align: center;
   border: 0.1rem solid #333;
   border-radius: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   text-decoration: none;
   color: #333;
   background-image: url(../Images/parchment.jpg);

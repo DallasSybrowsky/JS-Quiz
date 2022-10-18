@@ -6,6 +6,35 @@ let acceptingAnswers = true;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+var timeRemaining = true;
+var timeStart = false;
+var timeEl = document.querySelector("#timer-number");
+var timeBar = document.querySelector("#timer-counter");
+var secondsLeft = 75;
+
+// Event Listeners
+var click1 = document.querySelector("#choice1");
+var click2 = document.querySelector("#choice2");
+var click3 = document.querySelector("#choice3");
+var click4 = document.querySelector("#choice4");
+
+// Validation that clicks work
+click1.addEventListener("click", function() {
+  console.log("choice1 was clicked.")
+});
+click2.addEventListener("click", function() {
+  console.log("choice2 was clicked.")
+});
+click3.addEventListener("click", function() {
+  console.log("choice3 was clicked.")
+});
+click4.addEventListener("click", function() {
+  console.log("choice4 was clicked.")
+});
+
+// Sounds
+var clickSound = document.getElementById("click-sound");
+var musicTheme = document.getElementById("theme-music");
 
 let questions = [
   {
@@ -17,8 +46,7 @@ let questions = [
     answer: 3,
   },
   {
-    question:
-      "What sweets do Fred & George Weasley develop to sell to students looking to skip classes?",
+    question: "What sweets do Fred & George Weasley develop to sell to students looking to skip classes?",
     choice1: "Peppermint Imps",
     choice2: "Skiving Snackboxes",
     choice3: "Acid Pops",
@@ -59,8 +87,7 @@ let questions = [
     answer: 2,
   },
   {
-    question:
-      "Where is the entrance to the secret tunnel that leads to Honeyduke's cellar?",
+    question: "Where is the entrance to the secret tunnel that leads to Honeyduke's cellar?",
     choice1: "Behind the singing suit of armor",
     choice2: "Through the portrait with the ticklish pear",
     choice3: "Behind the seventh floor tapestry",
@@ -92,8 +119,7 @@ let questions = [
     answer: 1,
   },
   {
-    question:
-      "Whose hairs did Hermoine think she was using for polyjuice potion in The Chamber of Secrets?",
+    question: "Whose hairs did Hermoine think she was using for polyjuice potion in The Chamber of Secrets?",
     choice1: "Pansy Parkinson",
     choice2: "Daphne Greengrass",
     choice3: "Tracey Davis",
@@ -109,8 +135,7 @@ let questions = [
     answer: 2,
   },
   {
-    question:
-      "Who does Fred Wealsey ask out to the Yule ball in The Goblet of Fire?",
+    question: "Who does Fred Wealsey ask out to the Yule ball in The Goblet of Fire?",
     choice1: "Alicia Spinnet",
     choice2: "Katie Bell",
     choice3: "Angelina Johnson",
@@ -139,13 +164,46 @@ let questions = [
 const correctAnswer = 10;
 const maxQuestions = 10;
 
+function setTime() {
+  // Sets interval in variable
+  timeEl.textContent = secondsLeft
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft;
+    // playClick(); // Plays clock tick sound every second
+    if (secondsLeft === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+      // document.getElementById("#timer-counter").textContent = "GAME OVER!";
+      // timeEl.textContent = "";
+      timeBar.textContent = "GAME OVER"
+      endGame();
+// if secondsLeft is === to end game then the time should be your final score
+      // if (secondsLeft === 0) {
+      //   document.getElementById("#timer-counter").textContent = "GAME OVER!"
+      // //  score.textContent = scoreText;
+      // localStorage.setItem("", );
+      // }
+      // if myQuestions are wrong then secondsLeft 15-- should be taken from timer
+      // if (myQuestions === ) {
+      //  score.textContent = scoreText;
+      // localStorage.setItem("", );
+      // }
+      // document.getElementById("timer").innerHTML = time;
+    }
+  }, // Insert code here to supplant the 1000ms time value for different difficulty levels
+  1000
+  ); 
+};
+
 function startGame() {
   questionCounter = 0;
   score = 0;
+  setTime();
   availableQuestions = [...questions];
   // console.log(availableQuestions);
   getNewQuestion();
-}
+};
 
 function getNewQuestion() {
   questionCounter++;
@@ -153,13 +211,25 @@ function getNewQuestion() {
   currentQuestion = availableQuestions[questionIndex]; // Sets current question number generated in line above to index of array
   
   document.getElementById("counter-number").textContent = questionCounter; // I want this line to update the HTML with the number of the current question
-
-  
-    document.getElementById("question").innerHTML = currentQuestion.question; // This code updates the question with one chosen at random by the line above
+  document.getElementById("question").innerHTML = currentQuestion.question; // This code updates the question with one chosen at random by the line above
     
-    for(let i=1; i<5; i++) {
+    for(let i=1; i<5; i++) { // This for loop updates the choices with those associated with the proper question from the array
       var choiceName = `choice${i}`;
       document.getElementById(choiceName).innerHTML = currentQuestion[choiceName];
     }
-  }
+};
+  
+// function playClick () { // Code to add click sounds to timer (placeholder for further development)
+//   clickSound.play();
+// };
+
+// function playMusic () { // Code to play theme music (placeholder for further development)
+//   musicTheme.play();
+// };
+
+function endGame() { // On game over state this function should redirect to the high scores page (done), save the users score (not complete), compare it to the top 5 (not complete), and rewrite in top 5 if score is high enough (not complete)
+  location.href = "./highscores.html"; // Redirect code to high scores page
+  //
+};
+
 startGame();

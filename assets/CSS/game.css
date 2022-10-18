@@ -19,14 +19,14 @@ h2 {
     font-size: 3.6rem;
 }
 
-.choice-container {
+#choice-container {
     display: flex;
     margin: 0rem 1.5rem 0.5rem 1.5rem;
     font-size: 1.8rem;
     border-radius: 1rem;
 }
 
-.choice-container:hover {
+#choice-container:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(51, 51, 51, 0.75);
     transition: ease 150ms;
@@ -62,22 +62,22 @@ h2 {
     padding: 4rem 2rem;
 }
 
-.counter-number {
+#counter-number {
     padding: 0rem 1rem;
 }
 
-.timer-counter {
+#timer-counter {
     display: flex;
     justify-content: center;
     font-size: 3rem;
     padding: 2rem 1rem;
 }
 
-.timer-text {
+#timer-text {
     padding:0rem 1rem;
 }
 
-.timer-suffix {
+#timer-suffix {
     padding:0rem 1rem;
 }
 

@@ -5,34 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Let's play!</title>
-    <!-- <link rel="stylesheet" href="./assets/CSS/style.css" /> -->
     <link rel="stylesheet" href="./assets/CSS/game.css" />
+    <link rel="icon" href="data:;base64,=">
   </head>
   <body>
-    <div class="container">
+    <!-- Code below is intended to play click sounds every second -->
+    <!-- <audio id="click-sound" type="audio/wav"> 
+        <source src="./assets/Sound/click.wav">
+    </audio> -->
+    <div id="container">
         <div class="time-score">
-            <div class="timer-counter">
-                <p class="timer-text">Time Remaining:</p>
-                <p class="timer-number">15</p>
-                <p class="timer-suffix">seconds</p>
+            <div id="timer-counter">
+                <p id="timer-text">Time Remaining:</p>
+                <p id="timer-number"></p>
+                <p id="timer-suffix">seconds</p>
             </div>
         </div>
         <img class="potterLogo" src="./assets/Images/HarryPotter.png" alt="Harry Potter Type Logo">
         <div id="game" class="justify-center flex-column">
         <h2 id="question">What is the answer to this question?</h2>
-            <div class="choice-container">
+            <div id="choice-container">
                 <p class="choice-prefix">A</p>
                 <p class="choice-text" id="choice1" data-number="1"></p>
             </div>
-            <div class="choice-container">
+            <div id="choice-container">
                 <p class="choice-prefix">B</p>
                 <p class="choice-text" id="choice2" data-number="2"></p>
             </div>
-            <div class="choice-container">
+            <div id="choice-container">
                 <p class="choice-prefix">C</p>
                 <p class="choice-text" id="choice3" data-number="3"></p>
             </div>
-            <div class="choice-container">
+            <div id="choice-container">
                 <p class="choice-prefix">D</p>
                 <p class="choice-text" id="choice4" data-number="4"></p>
             </div>
