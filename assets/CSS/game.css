@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap');
+
+:root { /*Setting root sources for use throughout CSS */
+    background-image: url(../Images/parchment.jpg); /*Setting background color*/
+    font-size: 62.5%; /*Setting root font size to 10px (62.5% of 16px) for easier manipulation elsewhere*/
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'EB Garamond', serif;
+    margin: 0;
+    color: #333;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    margin: 0rem 4rem 4rem 4rem;
+    font-size: 3.6rem;
+}
+
+.choice-container {
+    display: flex;
+    margin: 0rem 1.5rem 0.5rem 1.5rem;
+    font-size: 1.8rem;
+    border-radius: 1rem;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(51, 51, 51, 0.75);
+    transition: ease 150ms;
+}
+
+.choice-prefix {
+    font-size: 2.4rem;
+    width: 5%;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
+    border: 0.1rem solid #333;
+    background-color: rgba(51, 51, 51, 0.75);
+    color: #FCF5E5;
+    border-radius: 1rem 0rem 0rem 1rem;
+}
+
+.choice-text {
+    font-size: 2.4rem;
+    padding: 1.5rem;
+    width: 100%;
+    background-color:rgb(51, 51, 51, 0.05);
+    border-right: 0.1rem solid #333;
+    border-top: 0.1rem solid #333;
+    border-bottom: 0.1rem solid #333;
+    border-radius: 0rem 1rem 1rem 0rem;
+}
+
+.question-counter {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    padding: 4rem 2rem;
+}
+
+.counter-number {
+    padding: 0rem 1rem;
+}
+
+.timer-counter {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    padding: 2rem 1rem;
+}
+
+.timer-text {
+    padding:0rem 1rem;
+}
+
+.timer-suffix {
+    padding:0rem 1rem;
+}
+
+.potterLogo {
+    margin: auto;
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+  }
