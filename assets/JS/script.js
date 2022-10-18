@@ -20,16 +20,41 @@ var click4 = document.querySelector("#choice4");
 
 // Validation that clicks work
 click1.addEventListener("click", function() {
-  console.log("choice1 was clicked.")
+  console.log("Choice A was clicked.")
+  let click1 = 1;
+  // Code should validate if this choice is correct
+  if(click1 === document.currentQuestion[answer]) {
+    console.log("Correct!!");
+  } else {
+    console.log("Incorrect!!");
+  };
 });
 click2.addEventListener("click", function() {
-  console.log("choice2 was clicked.")
+  console.log("Choice B was clicked.")
+  // Code should validate if this choice is correct
+  if(click2 === document.currentQuestion[answer]) {
+    console.log("Correct!!");
+  } else {
+    console.log("Incorrect!!");
+  };
 });
 click3.addEventListener("click", function() {
-  console.log("choice3 was clicked.")
+  console.log("Choice C was clicked.")
+  // Code should validate if this choice is correct
+  if(click3 === document.currentQuestion[answer]) {
+    console.log("Correct!!");
+  } else {
+    console.log("Incorrect!!");
+  };
 });
 click4.addEventListener("click", function() {
-  console.log("choice4 was clicked.")
+  console.log("Choice D was clicked.")
+  // Code should validate if this choice is correct
+  if(click4 === document.currentQuestion[answer]) {
+    console.log("Correct!!");
+  } else {
+    console.log("Incorrect!!");
+  };
 });
 
 // Sounds
