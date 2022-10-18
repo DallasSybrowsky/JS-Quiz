@@ -2,7 +2,7 @@
 
 ## Background
 
-This homework challenge was assigned so I could build a timed coding quiz with multiple-choice questions. This app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code that I have written. It has a clean, polished, and responsive user interface. 
+This homework challenge was assigned so I could build a timed coding quiz with multiple-choice questions. This app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code that I have written. It has a clean, polished, and responsive user interface. **Note:** The instructor has said that our quiz doesn't need to be related to JS.
 
 Please see the repo at: https://github.com/DallasSybrowsky/JS-Quiz
 
