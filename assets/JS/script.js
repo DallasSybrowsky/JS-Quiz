@@ -3,12 +3,9 @@ const choices = Array.from(document.getElementsByClassName("choice-text"));
 const maxQuestions = 10;
 
 let currentQuestion = {};
-let acceptingAnswers = true;
 let questionCounter = 0;
 let availableQuestions = [];
-let answeredQuestions = []; // This will have questions already answered so they're not repeated in the same game
 let questionIndex = 0;
-var alreadyAsked = [];
 var timeRemaining = true;
 var timeStart = false;
 var timeEl = document.querySelector("#timer-value");
@@ -28,7 +25,7 @@ var click4 = document.querySelector("#choice4");
 click1.addEventListener("click", function() {
   console.log("Choice A was clicked.")
   console.log("Question " + questionIndex + " was chosen");
-  secondsLeft - 15;
+  // secondsLeft -= 15;
   getNewQuestion();
   // let click1 = 1;
   // Code should validate if this choice is correct
@@ -36,13 +33,12 @@ click1.addEventListener("click", function() {
   //   console.log("Correct!!");
   // } else {
   //   console.log("Incorrect!!"); 
-    secondsLeft - 15;
   // };
 });
 click2.addEventListener("click", function() {
   console.log("Choice B was clicked.");
   console.log("Question " + questionIndex + " was chosen");
-  secondsLeft - 15;
+  // secondsLeft -= 15;
   getNewQuestion();
   // Code should validate if this choice is correct
   // if(click2 === document.currentQuestion[answer]) {
@@ -55,27 +51,25 @@ click2.addEventListener("click", function() {
 click3.addEventListener("click", function() {
   console.log("Choice C was clicked.");
   console.log("Question " + questionIndex + " was chosen");
-  secondsLeft - 15;
+  // secondsLeft -= 15;
   getNewQuestion();
   // Code should validate if this choice is correct
   // if(click3 === document.currentQuestion[answer]) {
   //   console.log("Correct!!");
   // } else {
   //   console.log("Incorrect!!");
-    secondsLeft - 15;
   // };
 });
 click4.addEventListener("click", function() {
   console.log("Choice D was clicked.");
   console.log("Question " + questionIndex + " was chosen");
-  secondsLeft - 15;
+  // secondsLeft -= 15;
   getNewQuestion();
   // Code should validate if this choice is correct
   // if(click4 === document.currentQuestion[answer]) {
   //   console.log("Correct!!");
   // } else {
   //   console.log("Incorrect!!");
-    secondsLeft - 15;
   // };
 });
 
@@ -214,7 +208,7 @@ function setTime() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
     // playClick(); // Plays clock tick sound every second
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       // Stops countdown of timer
       clearInterval(timerInterval);
       endGame();
@@ -225,7 +219,6 @@ function setTime() {
 function startGame() {
   questionCounter = 0;
   score = 0;
-  // answeredQuestions = [];
   setTime();
   availableQuestions = [...questions];
   questionIndex = Math.floor(Math.random() * 4); // Chooses random number and sets current question index to that number
@@ -236,15 +229,11 @@ function getNewQuestion() { // Gets new question
   questionCounter++;
   currentQuestion = availableQuestions[questionIndex]; // Sets current question number generated in line above to index of array
   document.getElementById("question").innerHTML = currentQuestion.question; // This code updates the question with one chosen at random by the line above
-  // Perhaps set random number from 1-5?
-  counterNumber.textContent = questionCounter;
-  //document.setElement("#counter-number", questionCounter); // I want this line to update the HTML with the number of the current question
-  
+  counterNumber.textContent = questionCounter;  
   for(let i=1; i<5; i++) { // This for loop updates the choices with those associated with the proper question from the array
     var choiceName = `choice${i}`;
     document.getElementById(choiceName).innerHTML = currentQuestion[choiceName];
   }
-
   if(questionCounter >= maxQuestions) {
     endGame();
   }
@@ -260,21 +249,28 @@ function getNewQuestion() { // Gets new question
 // };
 
 function endGame() { // On game over state this function should redirect to the high scores page (done), save the users score (not complete), compare it to the top 5 (not complete), and rewrite in top 5 if score is high enough (not complete)
+  let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
   let champion = prompt("Congratulations Champion! Please enter your name:");
-  if(champion != null) {
-    localStorage.setItem('Champion', champion);
-  };
-  saveHighScore();
+  let score = {
+    champion: champion,
+    score: secondsLeft,
+    };
+    highScores.push(score);
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+  // if(champion != null) {
+  //   localStorage.setItem('Champion', champion);
+  // };
+  // saveHighScore();
   location.href = "./highscores.html"; // Redirect code to high scores page
   //
 };
 
-function saveHighScore() {
-  const score = {
-    champion: champion,
-    score: secondsLeft,
-    };
-    localStorage.setItem('score', JSON.stringify([score]));
-};
+// function saveHighScore() {
+//   const score = {
+//     champion: champion,
+//     score: secondsLeft,
+//     };
+//     localStorage.setItem('score', JSON.stringify([score]));
+// };
 
 startGame();
