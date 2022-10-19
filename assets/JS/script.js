@@ -1,16 +1,22 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
+const maxQuestions = 10;
 
 let currentQuestion = {};
 let acceptingAnswers = true;
-let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let answeredQuestions = []; // This will have questions already answered so they're not repeated in the same game
+let questionIndex = 0;
+var alreadyAsked = [];
 var timeRemaining = true;
 var timeStart = false;
-var timeEl = document.querySelector("#timer-number");
+var timeEl = document.querySelector("#timer-value");
 var timeBar = document.querySelector("#timer-counter");
+var counterNumber = document.querySelector("#counter-number");
 var secondsLeft = 75;
+var champion = [];
+var score = [];
 
 // Event Listeners
 var click1 = document.querySelector("#choice1");
@@ -21,40 +27,56 @@ var click4 = document.querySelector("#choice4");
 // Validation that clicks work
 click1.addEventListener("click", function() {
   console.log("Choice A was clicked.")
-  let click1 = 1;
+  console.log("Question " + questionIndex + " was chosen");
+  secondsLeft - 15;
+  getNewQuestion();
+  // let click1 = 1;
   // Code should validate if this choice is correct
-  if(click1 === document.currentQuestion[answer]) {
-    console.log("Correct!!");
-  } else {
-    console.log("Incorrect!!");
-  };
+  // if(click1 === document.currentQuestion[answer]) {
+  //   console.log("Correct!!");
+  // } else {
+  //   console.log("Incorrect!!"); 
+    secondsLeft - 15;
+  // };
 });
 click2.addEventListener("click", function() {
-  console.log("Choice B was clicked.")
+  console.log("Choice B was clicked.");
+  console.log("Question " + questionIndex + " was chosen");
+  secondsLeft - 15;
+  getNewQuestion();
   // Code should validate if this choice is correct
-  if(click2 === document.currentQuestion[answer]) {
-    console.log("Correct!!");
-  } else {
-    console.log("Incorrect!!");
-  };
+  // if(click2 === document.currentQuestion[answer]) {
+  //   console.log("Correct!!");
+  // } else {
+  //   console.log("Incorrect!!");
+    
+  // };
 });
 click3.addEventListener("click", function() {
-  console.log("Choice C was clicked.")
+  console.log("Choice C was clicked.");
+  console.log("Question " + questionIndex + " was chosen");
+  secondsLeft - 15;
+  getNewQuestion();
   // Code should validate if this choice is correct
-  if(click3 === document.currentQuestion[answer]) {
-    console.log("Correct!!");
-  } else {
-    console.log("Incorrect!!");
-  };
+  // if(click3 === document.currentQuestion[answer]) {
+  //   console.log("Correct!!");
+  // } else {
+  //   console.log("Incorrect!!");
+    secondsLeft - 15;
+  // };
 });
 click4.addEventListener("click", function() {
-  console.log("Choice D was clicked.")
+  console.log("Choice D was clicked.");
+  console.log("Question " + questionIndex + " was chosen");
+  secondsLeft - 15;
+  getNewQuestion();
   // Code should validate if this choice is correct
-  if(click4 === document.currentQuestion[answer]) {
-    console.log("Correct!!");
-  } else {
-    console.log("Incorrect!!");
-  };
+  // if(click4 === document.currentQuestion[answer]) {
+  //   console.log("Correct!!");
+  // } else {
+  //   console.log("Incorrect!!");
+    secondsLeft - 15;
+  // };
 });
 
 // Sounds
@@ -185,10 +207,6 @@ let questions = [
   },
 ];
 
-// Constants
-const correctAnswer = 10;
-const maxQuestions = 10;
-
 function setTime() {
   // Sets interval in variable
   timeEl.textContent = secondsLeft
@@ -197,51 +215,40 @@ function setTime() {
     timeEl.textContent = secondsLeft;
     // playClick(); // Plays clock tick sound every second
     if (secondsLeft === 0) {
-      // Stops execution of action at set interval
+      // Stops countdown of timer
       clearInterval(timerInterval);
-      // document.getElementById("#timer-counter").textContent = "GAME OVER!";
-      // timeEl.textContent = "";
-      timeBar.textContent = "GAME OVER"
       endGame();
-// if secondsLeft is === to end game then the time should be your final score
-      // if (secondsLeft === 0) {
-      //   document.getElementById("#timer-counter").textContent = "GAME OVER!"
-      // //  score.textContent = scoreText;
-      // localStorage.setItem("", );
-      // }
-      // if myQuestions are wrong then secondsLeft 15-- should be taken from timer
-      // if (myQuestions === ) {
-      //  score.textContent = scoreText;
-      // localStorage.setItem("", );
-      // }
-      // document.getElementById("timer").innerHTML = time;
     }
-  }, // Insert code here to supplant the 1000ms time value for different difficulty levels
-  1000
-  ); 
+  }, 1000); 
 };
 
 function startGame() {
   questionCounter = 0;
   score = 0;
+  // answeredQuestions = [];
   setTime();
   availableQuestions = [...questions];
-  // console.log(availableQuestions);
+  questionIndex = Math.floor(Math.random() * 4); // Chooses random number and sets current question index to that number
   getNewQuestion();
 };
 
-function getNewQuestion() {
+function getNewQuestion() { // Gets new question
   questionCounter++;
-  const questionIndex = Math.floor(Math.random() * availableQuestions.length); // Chooses random number and sets current question index to that number
   currentQuestion = availableQuestions[questionIndex]; // Sets current question number generated in line above to index of array
-  
-  document.getElementById("counter-number").textContent = questionCounter; // I want this line to update the HTML with the number of the current question
   document.getElementById("question").innerHTML = currentQuestion.question; // This code updates the question with one chosen at random by the line above
-    
-    for(let i=1; i<5; i++) { // This for loop updates the choices with those associated with the proper question from the array
-      var choiceName = `choice${i}`;
-      document.getElementById(choiceName).innerHTML = currentQuestion[choiceName];
-    }
+  // Perhaps set random number from 1-5?
+  counterNumber.textContent = questionCounter;
+  //document.setElement("#counter-number", questionCounter); // I want this line to update the HTML with the number of the current question
+  
+  for(let i=1; i<5; i++) { // This for loop updates the choices with those associated with the proper question from the array
+    var choiceName = `choice${i}`;
+    document.getElementById(choiceName).innerHTML = currentQuestion[choiceName];
+  }
+
+  if(questionCounter >= maxQuestions) {
+    endGame();
+  }
+  questionIndex++;
 };
   
 // function playClick () { // Code to add click sounds to timer (placeholder for further development)
@@ -253,8 +260,21 @@ function getNewQuestion() {
 // };
 
 function endGame() { // On game over state this function should redirect to the high scores page (done), save the users score (not complete), compare it to the top 5 (not complete), and rewrite in top 5 if score is high enough (not complete)
+  let champion = prompt("Congratulations Champion! Please enter your name:");
+  if(champion != null) {
+    localStorage.setItem('Champion', champion);
+  };
+  saveHighScore();
   location.href = "./highscores.html"; // Redirect code to high scores page
   //
+};
+
+function saveHighScore() {
+  const score = {
+    champion: champion,
+    score: secondsLeft,
+    };
+    localStorage.setItem('score', JSON.stringify([score]));
 };
 
 startGame();
