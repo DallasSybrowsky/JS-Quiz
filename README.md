@@ -8,7 +8,7 @@ This homework assignment required me to build a timed coding quiz with multiple-
 
 Please see the repo at: https://github.com/DallasSybrowsky/JS-Quiz
 
-The live page can be accessed at: **input live page address here**
+The live page can be accessed at: https://dallassybrowsky.github.io/JS-Quiz/
 
 ## User Story
 
