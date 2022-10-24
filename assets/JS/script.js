@@ -1,6 +1,6 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
-const maxQuestions = 10;
+const maxQuestions = 11; // Changed max from 10 to 11 so 10 questions are actually asked
 
 let currentQuestion = {};
 let questionCounter = 0;
@@ -14,6 +14,7 @@ var counterNumber = document.querySelector("#counter-number");
 var secondsLeft = 75;
 var champion = [];
 var score = [];
+let validEntry = false;
 
 // Event Listeners
 var click1 = document.querySelector("#choice1");
@@ -37,12 +38,12 @@ click4.addEventListener("click", function(event) {
 
 
 function answerChecker(event) {
-  console.log("Choice D was clicked.");
-  console.log("Question " + (questionIndex -1 ) + " was chosen");
+  console.log("Choice D was clicked."); // Console.log for validation during initial set up
+  console.log("Question " + (questionIndex -1 ) + " was chosen"); // Console.log for validation during initial set up
   let btnVal = event.target.innerHTML;
-  console.log(event.target.innerHTML);
+  console.log(event.target.innerHTML); // Console.log for validation during initial set up
   // Code should validate if this choice is correct
-  console.log("current question:", currentQuestion);
+  console.log("current question:", currentQuestion); // Console.log for validation during initial set up
   if(btnVal == currentQuestion.answer) {
     console.log("Correct!!");
   } else {
@@ -217,7 +218,7 @@ function getNewQuestion() { // Gets new question
     var choiceName = `choice${i}`;
     document.getElementById(choiceName).innerHTML = currentQuestion[choiceName];
   }
-  if(questionCounter >= maxQuestions) {
+  if(questionCounter >= maxQuestions) { // Changed questionCounter >= maxQuestions to questionCounter = maxQuestions
     endGame();
   }
   questionIndex++;
@@ -233,7 +234,16 @@ function getNewQuestion() { // Gets new question
 localStorage
 function endGame() { // On game over state this function should redirect to the high scores page (done), save the users score (not complete), compare it to the top 5 (not complete), and rewrite in top 5 if score is high enough (not complete)
   let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  let champion = prompt("Congratulations Champion! Please enter your name:");
+  // Insert statement to validate that a name has been entered 
+  validEntry = false;
+  while(validEntry === false) {
+    var champion = prompt("Congratulations Champion! Please enter your name:");
+    if(champion === "") {
+      validEntry = false;
+    } else {
+      validEntry = true;
+    }
+  };
   let score = {
     champion: champion,
     score: secondsLeft,

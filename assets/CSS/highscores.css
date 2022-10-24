@@ -96,8 +96,25 @@ ol {
   border: 0.2rem solid #333333c2;
   transition: ease 150ms;
 }
-.btn[disabled]:hover {
-  cursor: not-allowed;
-  box-shadow: none;
-  transform: none;
+
+#reset-btn {
+  position: relative;
+
+}
+
+#reset-btn .tooltip {
+  visibility: hidden;
+  width: 25rem;
+  background-color: transparent;
+  color: #333;
+  text-align: center;
+
+  /* Positioning the tooltip */
+  position: absolute;
+  z-index: 1;
+  left: 105%;
+}
+
+#reset-btn:hover .tooltip {
+  visibility: visible;
 }

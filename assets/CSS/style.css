@@ -3,6 +3,7 @@
 :root {
   /*Setting root sources for use throughout CSS */
   background-image: url(../Images/parchment.jpg); /*Setting background image*/
+  background-size: 150vh;
   font-size: 62.5%; /*Setting root font size to 10px (62.5% of 16px) for easier manipulation elsewhere*/
 }
 

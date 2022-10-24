@@ -4,7 +4,7 @@ console.log(highScores);
 console.log(highScores.sort((a, b) => b.score - a.score));
 
 // Resetting High Scores
-var resetScores = document.querySelector("#reset-button");
+var resetScores = document.querySelector("#reset-btn");
 
 resetScores.addEventListener("click", function() {
     localStorage.clear();
@@ -12,8 +12,9 @@ resetScores.addEventListener("click", function() {
 
 for (let i = 0; i < 5; i++) {
     if(highScores[i]) {
+        document.getElementById(`player${i}`).innerHTML = highScores[i].champion + ": ";
         document.getElementById(`score${i}`).innerHTML = highScores[i].score;
-        document.getElementById(`player${i}`).innerHTML = highScores[i].champion;
+        
 
     }
 };
