@@ -49,7 +49,7 @@ function answerChecker(event) {
   } else {
     console.log("Incorrect!!");
     if(secondsLeft <= 14) {
-      endGame;
+      endGame();
     } else {
     secondsLeft -= 15;
     };

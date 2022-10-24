@@ -2,7 +2,9 @@
 
 ## Background
 
-This homework challenge was assigned so I could build a timed coding quiz with multiple-choice questions. This app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code that I have written. It has a clean, polished, and responsive user interface. **Note:** The instructor has said that our quiz doesn't need to be related to JS.
+This homework assignment required me to build a timed coding quiz with multiple-choice questions. The app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code that I have written. It has a clean, polished, and responsive user interface. 
+
+**Note:** The instructor has said that our quiz questions don't need to be related to JavaScript.
 
 Please see the repo at: https://github.com/DallasSybrowsky/JS-Quiz
 
@@ -32,57 +34,17 @@ WHEN the game is over
 THEN I can save my initials and my score
 ```
 
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
 ## Method
 
 I created all elements of this quiz in relation to the HTML, CSS, and JavaScript. The questions supplied for the quiz, as specified by the instructor, can be on any topic I choose. As such I decided to make the quiz Harry Potter related. The questions for the quiz have been written by me and my family. Please enjoy testing your knowledge and good luck!
+
+I built the code for this quiz from scratch and designed the script such that it would fit the criteria set forth above, and by the course instructor. There are three HTML pages. One is a welcome screen, one is the game itself, and the third is the high scores page.
+
+Game Instructions:
+
+When playing the game the player starts with 75 seconds. When a player answers a question they move to the following question. If their answer is correct they continue on without penalty. If their answer is incorrect they proceed, but with 15 seconds taken off the timer. There are 10 questions in the quiz. If the player reaches the end of the quiz they have an opportunity to enter their name or initials (whichever they prefer, but a blank response is not allowed) and their score is saved and displayed on the leaderboard. If either the timer runs out or the player gets too many incorrect answers and the timer runs out as a result of the penalties, the game is over and the player is presented with the opportunity to enter their name.
+
+In the High Scores page (Hall of Champions) a list of high scores will appear. The game initially doesn't show any high scores if the game has not been played on the players computer. There is a button to take the player back to the Home page, as well as a second to erase the high scores (Obliviate!). There is text that shows up when the player hovers their cursor over the Obliviate button to inform those unfamiliar with Harry Potter Spells of the button's purpose.
 
 ## Support
 
