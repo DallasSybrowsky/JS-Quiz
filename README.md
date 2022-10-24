@@ -48,11 +48,11 @@ In the High Scores page (Hall of Champions) a list of high scores will appear. T
 
 Below are screenshots of the game's various pages:
 
-<img width="500" src="./assets/images/Screenshots/HPTR_JS_Quiz.png" alt="Quiz Homepage">
+<img width="500" src="assets/images/Screenshots/HPTR_JS_Quiz.png" alt="Quiz Homepage">
 
-<img width="500" src="./assets/images/Screenshots/Gamescreen.png" alt="Quiz game page">
+<img width="500" src="assets/images/Screenshots/Gamescreen.png" alt="Quiz game page">
 
-<img width="500" src="./assets/images/Screenshots/Highscores" alt="High Scores page">
+<img width="500" src="assets/images/Screenshots/Highscores.png" alt="High Scores page">
 
 ## Support
 
