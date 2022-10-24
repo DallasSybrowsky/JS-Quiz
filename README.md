@@ -46,6 +46,14 @@ When playing the game the player starts with 75 seconds. When a player answers a
 
 In the High Scores page (Hall of Champions) a list of high scores will appear. The game initially doesn't show any high scores if the game has not been played on the players computer. There is a button to take the player back to the Home page, as well as a second to erase the high scores (Obliviate!). There is text that shows up when the player hovers their cursor over the Obliviate button to inform those unfamiliar with Harry Potter Spells of the button's purpose.
 
+Below are screenshots of the game's various pages:
+
+<img width="500" src="./assets/images/Screenshots/HPTR_JS_Quiz.png" alt="Quiz Homepage">
+
+<img width="500" src="./assets/images/Screenshots/Gamescreen.png" alt="Quiz game page">
+
+<img width="500" src="./assets/images/Screenshots/Highscores" alt="High Scores page">
+
 ## Support
 
 If you need support or have questions about the page, please contact me at dallas.sybrowsky@gmail.com.
